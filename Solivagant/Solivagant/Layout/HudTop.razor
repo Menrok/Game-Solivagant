@@ -1,0 +1,15 @@
+﻿<div class="hud-container">
+    <div class="hud-item">
+        <span class="hud-label">Zdrowie:</span>
+        <span class="hud-value">@GameState.Player.Health / @GameState.Player.MaxHealth</span>
+    </div>
+    <div class="hud-item">
+        <span class="hud-label">Ekwipunek:</span>
+        <span class="hud-value">@GameState.Player.Inventory.Count / @GameState.Player.InventoryCapacity</span>
+    </div>
+</div>
+
+@code {
+    protected override void OnInitialized() => GameState.OnChange += StateHasChanged;
+    public void Dispose() => GameState.OnChange -= StateHasChanged;
+}

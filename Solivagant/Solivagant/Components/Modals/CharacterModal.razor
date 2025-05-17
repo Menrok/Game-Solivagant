@@ -1,0 +1,9 @@
+﻿<div class="modal-overlay" @onclick="Close"></div>
+
+<div class="modal">
+    <h2>Postać: @GameState.Player.Name</h2>
+</div>
+
+@code {
+    private void Close() => ModalService.CloseModal();
+}

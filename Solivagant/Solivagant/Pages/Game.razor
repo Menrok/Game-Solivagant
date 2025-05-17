@@ -1,0 +1,18 @@
+﻿@page "/"
+
+Welcome to your new app.
+
+@if (ModalService.IsAdventureModalOpen)
+{
+    <AdventureModal />
+}
+
+@if (ModalService.IsCharacterModalOpen)
+{
+    <CharacterModal />
+}
+
+@code {
+    protected override void OnInitialized() => ModalService.OnChange += StateHasChanged;
+    public void Dispose() => ModalService.OnChange -= StateHasChanged;
+}
